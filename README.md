@@ -20,7 +20,7 @@ Save money is a web app used to list down the transactions. Includes dark theme
 
 - Login and Signup
 - Dark theme
-- Add and delte the transactions
+- Add and delete the transactions
 - classified transactions based on sent or received
 
 ## Tech stack
