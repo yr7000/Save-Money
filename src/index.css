@@ -58,3 +58,10 @@ ul {
 .App.dark span {
   color: white;
 }
+
+.errorDark {
+  color: white;
+}
+.errorLight {
+  color: black;
+}

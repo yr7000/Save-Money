@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import { useSignup } from "../../hooks/useSignup";
 import styles from "./Signup.module.css";
 
@@ -7,6 +8,7 @@ export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { error, isPending, signup } = useSignup();
+  const { theme } = useAuthContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +48,9 @@ export default function Signup() {
           Loading..
         </button>
       )}
-      {error && <p>{error}</p>}
+      {error && (
+        <p className={theme === "dark" ? "errorDark" : "errorLight"}>{error}</p>
+      )}
     </form>
   );
 }

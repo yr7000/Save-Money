@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuthContext } from "../../hooks/useAuthContext";
 import { useLogin } from "../../hooks/useLogin";
 import styles from "./Login.module.css";
 
@@ -6,6 +7,7 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { error, isPending, login } = useLogin();
+  const { theme } = useAuthContext();
   const handleSubmit = (e) => {
     e.preventDefault();
     login(email, password);
@@ -36,7 +38,9 @@ export default function Login() {
           Loading..
         </button>
       )}
-      {error && <p>{error}</p>}
+      {error && (
+        <p className={theme === "dark" ? "errorDark" : "errorLight"}>{error}</p>
+      )}
     </form>
   );
 }
